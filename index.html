@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise for My Love ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Prompt', sans-serif;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe0e9 50%, #ffd1dc 100%);
+            min-height: 100vh;
+            display: flex; justify-content: center; align-items: center;
+            overflow-x: hidden;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            z-index: 10;
+            margin: 20px;
+        }
+
+        /* --- ส่วนของรูปภาพทรงหัวใจ (Photo Heart) --- */
+        .heart-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            /* เทคนิคบังคับรูปทรงหัวใจ */
+            clip-path: path('M140 20C140 20 120 0 80 0C40 0 0 40 0 90C0 160 140 260 140 260C140 260 280 160 280 90C280 40 240 0 200 0C160 0 140 20 140 20Z');
+        }
+
+        .heart-container img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        .heart-container img:hover { transform: scale(1.1); }
+
+        h1 { color: #ff0a54; font-size: 1.8rem; margin: 15px 0; }
+        h2 { color: #ff4d6d; }
+        
+        input {
+            padding: 15px;
+            border: 2px solid #ffccd5;
+            background: #fff;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2rem;
+            width: 80%;
+            margin-bottom: 20px;
+            outline: none;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #ff4081, #ff0a54);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 80%;
+        }
+
+        .message {
+            background: #fff9fb;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #ff4081;
+            text-align: left;
+            line-height: 1.6;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        #main-content { display: none; animation: fadeIn 1s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div id="login-screen">
+            <div style="font-size: 50px;">🔐</div>
+            <h2>ใส่รหัสหน่อยค้าบที่รัก!</h2>
+            <input type="password" id="pass-input" placeholder="วันครบรอบของเรา">
+            <br>
+            <button class="btn" onclick="checkPassword()">เปิดดูเซอร์ไพรส์ ✨</button>
+            <p id="error-msg" style="color:red; display:none; margin-top:10px;">รหัสผิดนะคนดี ลองใหม่น้า</p>
+        </div>
+
+        <div id="main-content">
+            <h1>Happy 1 Month! ❤️</h1>
+            
+            <div class="heart-container" id="photo-heart">
+                </div>
+
+            <h3 style="color: #ad1457;">เค้ารักคนนี้ที่สุดเลยยย 🧸✨</h3>
+
+            <div class="message">
+                 เย้! ครบรอบ 1 เดือนแล้วนะค้าบอ้วน <br>
+                 ขอบคุณมากๆ ที่เข้ามาเป็นความสุขให้กัน <br>
+                 อยู่เป็นรอยยิ้มให้เค้าแบบนี้ไปนานๆ นะ <br>
+                 เค้าสัญญาว่าจะดูแลเธอให้ดีที่สุดเลย รักนะครับ! ❤️
+            </div>
+            <div style="background: #ffe3ed; padding: 10px; border-radius: 20px; color: #ad1457; font-weight: 600;">
+                รักอ้วนนะค้าบบ! ❤️❤️
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- ส่วนที่พี่ต้องแก้: ใส่ลิงก์รูปภาพในนี้ครับ ---
+        const myPhotos = [
+            'file:///C:/Users/com/Downloads/ee85d018-f1f1-4951-b5eb-6627f11094d6.jpg', 
+            'file:///C:/Users/com/Downloads/2805b67f-4276-4e8f-a132-106181106681.jpg',
+            'file:///C:/Users/com/Downloads/7768436d-49e7-470e-b91f-c6ef81b91592.jpg',
+            'file:///C:/Users/com/Downloads/d1575bce-8656-43cb-8708-53245707860e.jpg',
+            'file:///C:/Users/com/Downloads/cd9e0ee9-91a5-44ba-82c6-1c2e49751b34.jpg',
+            'file:///C:/Users/com/Downloads/6bea3e90-d956-406e-a57f-5d9115b83aa2.jpg',
+            'file:///C:/Users/com/Downloads/9044f77c-e746-4760-8e6a-4f832d3088c7.jpg', // ใส่ซ้ำเพื่อให้เต็ม Grid
+            'file:///C:/Users/com/Downloads/15040ba8-5a72-40b4-aac7-fc456bd241d7.jpg',
+            'file:///C:/Users/com/Downloads/62d36c10-ba8e-4100-90bf-25426178db9b.jpg',
+        ];
+
+        function loadPhotos() {
+            const container = document.getElementById('photo-heart');
+            myPhotos.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.onerror = () => { img.src = 'https://via.placeholder.com/100?text=Love'; }; // ถ้ารูปไม่ขึ้นจะโชว์คำว่า Love
+                container.appendChild(img);
+            });
+        }
+
+        function checkPassword() {
+            const pass = document.getElementById('pass-input').value;
+            if (pass === "230369") {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                loadPhotos();
+            } else {
+                document.getElementById('error-msg').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
